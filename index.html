@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Todo Study List</title>
+
+  </head>
+
+  <body>
+
+    <div class="todo-list">
+
+      <div>Todo Study List</div>
+
+      <div>
+
+        <input
+
+          type="text"
+
+          name="task"
+
+          id="task"
+
+          placeholder="Enter your todo here.."
+
+        />
+
+        <button onclick="createTodo(this)">Create</button>
+
+      </div>
+
+      <!-- List of todo -->
+
+      <div id="todolist"></div>
+
+    </div>
+
+ 
+
+    <script>
+
+      function createTodo(element) {
+
+        var todoData = document.getElementById("task").value;
+
+        if (todoData === undefined || todoData === "") {
+
+          alert("Please Enter a valid text!!");
+
+          return;
+
+        }
+
+        var span = document.createElement("div");
+
+        span.textContent = document.getElementById("task").value;
+
+        var deleteBtn = '<button onclick="deleteTodo(this)">Delete</button>';
+
+        span.innerHTML += deleteBtn;
+
+        document.getElementById("todolist").appendChild(span);
+
+      }
+
+ 
+
+      function deleteTodo(e) {
+
+        e.parentNode.remove();
+
+      }
+
+    </script>
+
+  </body>
+
+</html>
